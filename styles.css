@@ -1,0 +1,84 @@
+/* Reset browser styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Black background color to the top navigation */
+.topnav {
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  background-color: #333;
+}
+
+/* Style the links inside the navbar */
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Isolate the "Help" nav item from the rest */
+.topnav a.split {
+  background-color: cornflowerblue;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 10px;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: #f2f2f2;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 600px wide, hide all links, except for the first one ("Home").Show the link that should open and close the topnav (.icon) */
+@media (max-width: 600px) {
+  .topnav {
+    justify-content: space-between;
+  }
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+  .topnav a.icon {
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JS, when the user clicks on the icon, this class displays the links vertically instead of horizontally*/
+@media (max-width: 600px) {
+  .topnav.responsive {
+    flex-direction: column;
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a,
+  a.split {
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive a.split {
+    position: static;
+    margin: 0;
+  }
+}
