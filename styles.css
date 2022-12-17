@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Black background color to the top navigation */
@@ -43,9 +44,57 @@
   color: #f2f2f2;
 }
 
+/* Put the search-container to the right of navbar */
+.topnav .search-container {
+  background-color: #333;
+  position: absolute;
+  right: 150px;
+  top: 0;
+}
+
+/* Style the search bar and the submit button */
+.topnav input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  outline: none;
+}
+
+.topnav .search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.topnav .search-container button:hover {
+  background-color: #ccc;
+}
+
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
   display: none;
+}
+
+/* Added responsiveness for iPad Air and iPad Mini */
+@media (max-width: 820px) {
+  .topnav .search-container {
+    right: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topnav .search-container {
+    right: 90px;
+  }
+  .topnav a {
+    padding: 14px 10px;
+  }
 }
 
 /* When the screen is less than 600px wide, hide all links, except for the first one ("Home").Show the link that should open and close the topnav (.icon) */
@@ -53,7 +102,8 @@
   .topnav {
     justify-content: space-between;
   }
-  .topnav a:not(:first-child) {
+  .topnav a:not(:first-child),
+  .topnav .search-container {
     display: none;
   }
   .topnav a.icon {
@@ -73,12 +123,29 @@
     top: 0;
   }
   .topnav.responsive a,
-  a.split {
+  a.split,
+  .topnav.responsive .search-container {
     display: block;
     text-align: left;
   }
-  .topnav.responsive a.split {
+  .topnav.responsive a.split,
+  .topnav.responsive .search-container {
     position: static;
     margin: 0;
+  }
+
+  .topnav.responsive .search-container {
+    width: 100%;
+  }
+
+  .topnav.responsive input[type="text"],
+  .topnav.responsive button {
+    border: 1px solid #ccc;
+    margin: 0;
+    width: 80%;
+  }
+
+  .topnav.responsive button {
+    width: 20%;
   }
 }
